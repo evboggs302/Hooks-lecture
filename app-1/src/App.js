@@ -38,10 +38,21 @@ import React, { useEffect, useState } from "react";
 export default function App() {
   let [count, setCount] = useState(0);
 
+  //useEffect is runing everytime the component is re-rendering. the second argument is what this func is looking for changes on. Once count changes, useEffect will run. You can use AS MANY useEffect funcs as you want. if the second argument is empty, it will run continuously when something changes
   useEffect(() => {
-    //this is runing everytime the component is re-rendering
     document.title = count;
-  });
+  }, [count]);
+
+  // useEffect(() => {
+  //   let interval = setInterval(() => {
+  //     console.log("interval started");
+  //   }, 1000);
+
+  //   return () => {
+  //     console.log("component unmounted");
+  //     clearInterval(interval);
+  //   };
+  // }, []);
 
   return (
     <div>
